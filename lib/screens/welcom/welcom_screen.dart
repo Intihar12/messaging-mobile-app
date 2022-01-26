@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:messagingapp/constants.dart';
+import 'package:messagingapp/screens/signinorsignup/signin_orsignup.dart';
 
 class welcomScreen extends StatelessWidget {
   const welcomScreen({Key? key}) : super(key: key);
@@ -9,12 +11,37 @@ class welcomScreen extends StatelessWidget {
       body: SafeArea(
         child: Column(
           children: [
+            Spacer(flex: 2,),
             Image.asset("assets/images/welcome_image.png"),
+            Spacer(flex: 3,),
             Text("Welcom to over freedom\ Messaging app", textAlign: TextAlign.center,
               style:  Theme.of(context).textTheme.headline5?.copyWith(fontWeight: FontWeight.bold),),
-            Text("Fredom take any person of you\ mother language",
+
+Spacer(),
+            Text("Fredom take any person of you\n mother language",
               textAlign: TextAlign.center,
               style: TextStyle(color: Theme.of(context).textTheme.bodyText1?.color?.withOpacity(0.64)),),
+Spacer(flex: 3,),
+            FittedBox(
+              child: TextButton(
+                  onPressed:() => Navigator.push(
+                      context, MaterialPageRoute(builder: (context)=>signinorsignup())),
+
+                child: Row(
+                children: [
+                  Text("Skip",
+                  style: Theme.of(context).textTheme.bodyText1?.copyWith(
+                      color: Theme.of(context).textTheme.bodyText1?.color?.withOpacity(0.8)),
+                  ),
+                  SizedBox(width: kDefaultPadding / 4,),
+                  Icon(
+                    Icons.arrow_forward_ios, size: 16,
+                      color: Theme.of(context).textTheme.bodyText1?.color?.withOpacity(0.8)
+                  )
+                ],
+              ),
+              ),
+            ),
           ],
         ),
       ),
