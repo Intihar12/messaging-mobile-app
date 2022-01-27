@@ -11,6 +11,7 @@ class chatsscreen extends StatefulWidget {
 }
 
 class _chatsscreenState extends State<chatsscreen> {
+  int _selectedIndex=1;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,21 +22,32 @@ class _chatsscreenState extends State<chatsscreen> {
         child: Icon(Icons.person_add_alt_1, color: Colors.white,),
       ),
 
-      bottomNavigationBar: BottomNavigationBar(
-        items: [
-          BottomNavigationBarItem(icon: Icon(Icons.messenger,), label: "chat"),
-          BottomNavigationBarItem(icon: Icon(Icons.people),label: "people"),
-          BottomNavigationBarItem(icon: Icon(Icons.call),label: "call"),
-         BottomNavigationBarItem(
+      bottomNavigationBar: buildBottomNavigationBar(),
+    );
+  }
 
-     icon: CircleAvatar(
-       radius: 10,
-       backgroundImage: AssetImage("assets/images/user_2.png"),
+  BottomNavigationBar buildBottomNavigationBar() {
+    return BottomNavigationBar(
+      type: BottomNavigationBarType.fixed,
+      currentIndex: _selectedIndex,
+      onTap: (value){
+        setState(() {
+          _selectedIndex=value;
+        });
+      },
+      items: [
+        BottomNavigationBarItem(icon: Icon(Icons.messenger,), label: "chat"),
+        BottomNavigationBarItem(icon: Icon(Icons.people),label: "people"),
+        BottomNavigationBarItem(icon: Icon(Icons.call),label: "call"),
+       BottomNavigationBarItem(
+
+   icon: CircleAvatar(
+     radius: 14,
+     backgroundImage: AssetImage("assets/images/user_2.png"),
  ),
-   label: "profile"
+ label: "profile"
  )
-        ],
-      ),
+      ],
     );
   }
 

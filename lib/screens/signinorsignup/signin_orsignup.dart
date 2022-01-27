@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:messagingapp/components/primary_button.dart';
 import 'package:messagingapp/constants.dart';
-import 'package:messagingapp/screens/charts/chats_screen.dart';
+import 'package:messagingapp/screens/chats/chats_screen.dart';
+
+
 class signinorsignup extends StatelessWidget {
   const signinorsignup({Key? key}) : super(key: key);
 

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:messagingapp/components/filled_outline_button.dart';
 import 'package:messagingapp/constants.dart';
 import 'package:messagingapp/modals/Chat.dart';
+import 'package:messagingapp/screens/messages/message_screen.dart';
 
 import 'chat_card.dart';
 class Body extends StatelessWidget {
@@ -27,8 +28,11 @@ class Body extends StatelessWidget {
         Expanded(
          child: ListView.builder(
              itemCount: chatsData.length,
-             itemBuilder: (context, index)=> chatCard(chat: chatsData[index],press: (){},)),
-        )
+             itemBuilder: (context, index)=> chatCard(chat: chatsData[index],
+
+        press:()=> Navigator.push(context, MaterialPageRoute(builder: (context)=>messagescreen()),),)),
+        ),
+
       ],
 
     );
